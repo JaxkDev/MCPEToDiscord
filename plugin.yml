@@ -1,0 +1,15 @@
+---
+name: MCPEToDiscord
+author: Jackthehaxk21
+version: 1.2.0
+api:
+- 3.0.0-ALPHA11
+main: Jack\DiscordMCPE\Main
+commands:
+  discord:
+    description: Send an message to Discord!
+    permission: discord.send
+    usage: /discord MESSAGE
+    aliases:
+    - dc
+...

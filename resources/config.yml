@@ -1,0 +1,35 @@
+---
+
+# +-------------------------------------------------+
+# |                McToDiscord - VER 1              |
+# |-------------------------------------------------|
+# |                                                 |
+# | Made by : Jackthehack21 (gangnam253@gmail.com)  |
+# |                                                 |
+# | Build   : 037#A                                 |
+# |                                                 |
+# | Details : This plugin is aimed to give players  |
+# |           A simple but fun view of what plugins |
+# |           Can do to modify your MCPE experience.|
+# |                                                 |
+# +-------------------------------------------------+
+
+discord: "true"  #Set this to true or false
+
+webhook_url: ""  #Set this to the webhook URL
+webhook_name: "MCPE Webhook"  #Set this to whatever name the webhook is called
+webhook_playerChat?: true
+webhook_playerJoin?: true
+webhook_playerLeave?: true
+webhook_playerDeath?: true  #Set these to true | false
+webhook_playerChangeGamemode?: true
+webhook_playerChatFormat: "[ {player} | {time} ] : {msg}"
+webhook_playerJoinFormat: "{player} Joined the server !"
+webhook_playerLeaveFormat: "{player} Left the server !"
+webhook_playerDeathFormat: "{player} Died !"
+
+other_pluginEnabled?: true
+other_pluginDisabled?: true
+other_pluginEnabledFormat: "Plugin Enabled !"
+other_pluginDisabledFormat: "Plugin Disabled !"
+...
