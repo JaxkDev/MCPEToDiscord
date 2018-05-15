@@ -5,6 +5,7 @@ version: 1.2.0
 api:
 - 3.0.0-ALPHA10
 - 3.0.0-ALPHA11
+- 3.0.0-ALPHA12
 main: Jack\DiscordMCPE\Main
 commands:
   discord:
