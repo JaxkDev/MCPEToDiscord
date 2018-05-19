@@ -146,6 +146,7 @@ class Main extends PluginBase implements Listener{
     }
 
     public function onChat(PlayerChatEvent $event){
+	$playername = $event->getPlayer()->getNameTag();
         $message = $event->getMessage();
         $ar = getdate();
         $time = $ar['hours'].":".$ar['minutes'];
