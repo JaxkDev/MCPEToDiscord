@@ -1,11 +1,11 @@
 <?php
 # +-------------------------------------------------+
-# |               McToDiscord - VER 1               |
+# |              McToDiscord - VER 1.3              |
 # |-------------------------------------------------|
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Build   : 037#A                                 |
+# | Build   : 041#A                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |

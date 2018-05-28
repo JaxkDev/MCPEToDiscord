@@ -1,7 +1,7 @@
 ---
 name: MCPEToDiscord
 author: Jackthehaxk21
-version: 1.2.0
+version: 1.3.0
 api:
 - 3.0.0-ALPHA10
 - 3.0.0-ALPHA11
@@ -12,6 +12,7 @@ commands:
     description: Send an message to Discord!
     permission: discord.send
     usage: /discord MESSAGE
+    defualt: true
     aliases:
     - dc
 ...
