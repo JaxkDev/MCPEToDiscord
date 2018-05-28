@@ -158,6 +158,31 @@ class Main extends PluginBase implements Listener{
         $this->sendMessage($msg);
     }
 
+    public function backFromAsync($player, $result){
+        if($player === "nolog"){
+            return;
+        }
+        elseif ($player === "CONSOLE"){
+            $player = new ConsoleCommandSender();
+        }
+        else{
+            $playerinstance = $this->getServer()->getPlayerExact($player);
+            if ($playerinstance === null){
+                return;
+            }
+            else{
+                $player = $playerinstance;
+            }
+        }
+        if($result["success"]) {
+            $player->sendMessage(C::AQUA."[MCPE->Discord] ".C::GREEN."Discord message was send!");
+        }
+        else{
+            $this->getLogger()->error(C::RED."Error: ".$result["Error"]);
+            $player->sendMessage(C::AQUA."[MCPE->Discord]] ".C::GREEN."Discord message failed to send, check console for the full error.");
+        }
+    }
+
     /**
      * @param $message
      */
@@ -171,6 +196,9 @@ class Main extends PluginBase implements Listener{
 	        "content" => $msg,
             "username" => $name
         ];
+
+        //USE ASYNC HERE
+        
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $webhook);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($curlopts));
