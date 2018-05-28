@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener{
                 $this->enabled = true;
                 $this->getLogger()->info(C::GREEN."Plugin is Enabled working on: ".$this->getServer()->getIp());
                 if($this->cfg->get('other_pluginEnabled?') === true){
-                    $this->sendMessage($this->cfg->get('other_pluginEnabledFormat'));
+                    $this->sendMessage("Enable", $this->cfg->get('other_pluginEnabledFormat'));
                 }
                 return;
             } else {
@@ -65,7 +65,7 @@ class Main extends PluginBase implements Listener{
 	public function onDisable(){
         $this->getLogger()->info(C::RED."Plugin Disabled");
         if($this->cfg->get('other_pluginDisabled?') === true){
-            $this->sendMessage($this->cfg->get('other_pluginDisabledFormat'));
+            $this->sendMessage("Disabled", $this->cfg->get('other_pluginDisabledFormat'));
         }
     }
 
@@ -93,7 +93,7 @@ class Main extends PluginBase implements Listener{
             }
 			else{
                 //gmmm
-                $name = $sender->getNameTag();
+                $name = $sender->getName();
                 $msg = implode(" ", $args);
                 $check = $this->getConfig()->get("discord");
                 $this->getLogger()->info($check);
@@ -102,7 +102,7 @@ class Main extends PluginBase implements Listener{
                     $sender->sendMessage(C::RED."Command is disabled by config.yml");
                     return true;
                 } else {
-                    $this->sendMessage("[".$sender->getNameTag()."] : ".implode(" ", $args));
+                    $this->sendMessage($name, "[".$sender->getNameTag()."] : ".implode(" ", $args));
                     $sender->sendMessage(C::AQUA.implode(" ", $args).C::GREEN." Was sent to discord.");
                 }
 			}
@@ -115,38 +115,38 @@ class Main extends PluginBase implements Listener{
      * @param PlayerJoinEvent $event
      */
 	public function onJoin(PlayerJoinEvent $event){
-        $playername = $event->getPlayer()->getNameTag();
+        $playername = $event->getPlayer()->getName();
         if($this->cfg->get("webhook_playerJoin?") !== true){
             return;
         }
         $format = $this->cfg->get("webhook_playerJoinFormat");
         $msg = str_replace("{player}",$playername,$format);
-        $this->sendMessage($msg);
+        $this->sendMessage($playername, $msg);
         // BASICHUD -> $event->getPlayer()->sendPopup(C::BOLD . C::GREEN . $playername. " ". C::BLACK." Welcome");
     }
 
     public function onQuit(PlayerQuitEvent $event){
-        $playername = $event->getPlayer()->getNameTag();
+        $playername = $event->getPlayer()->getName();
         if($this->cfg->get("webhook_playerLeave?") !== true){
             return;
         }
         $format = $this->cfg->get("webhook_playerLeaveFormat");
         $msg = str_replace("{player}",$playername,$format);
-        $this->sendMessage($msg);
+        $this->sendMessage($playername, $msg);
     }
 
     public function onDeath(PlayerDeathEvent $event){
-        $playername = $event->getPlayer()->getNameTag();
+        $playername = $event->getPlayer()->getName();
         if($this->cfg->get("webhook_playerDeath?") !== true){
             return;
         }
         $format = $this->cfg->get("webhook_playerDeathFormat");
         $msg = str_replace("{player}",$playername,$format);
-        $this->sendMessage($msg);
+        $this->sendMessage($playername, $msg);
     }
 
     public function onChat(PlayerChatEvent $event){
-	$playername = $event->getPlayer()->getNameTag();
+	    $playername = $event->getPlayer()->getName();
         $message = $event->getMessage();
         $ar = getdate();
         $time = $ar['hours'].":".$ar['minutes'];
@@ -155,7 +155,7 @@ class Main extends PluginBase implements Listener{
         }
         $format = $this->cfg->get("webhook_playerChatFormat");
         $msg = str_replace("{msg}",$message, str_replace("{time}",$time, str_replace("{player}",$playername,$format)));
-        $this->sendMessage($msg);
+        $this->sendMessage($playername, $msg);
     }
 
     public function backFromAsync($player, $result){
@@ -186,7 +186,7 @@ class Main extends PluginBase implements Listener{
     /**
      * @param $message
      */
-    public function sendMessage(string $msg){
+    public function sendMessage(string $player = "nolog", string $msg){
         if(!$this->enabled){
             return;
         }
@@ -198,16 +198,8 @@ class Main extends PluginBase implements Listener{
         ];
 
         //USE ASYNC HERE
-        
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $webhook);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($curlopts));
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        $response = curl_exec($curl);
-        $curlerror = curl_error($curl);
-        curl_close($curl);
+
+        $this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
         return true;
     }
 }
