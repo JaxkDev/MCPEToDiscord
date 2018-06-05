@@ -1,0 +1,13 @@
+---
+disabled: 'Plugin is disabled'
+disabled_config: 'Plugin is disabled as stated in config.yml'
+disabled_corrupt: 'Plugin is disabled as config.yml is corrupt'
+disabled_error: 'Plugin is disabled as a serious error occured'
+
+enabled: 'Plugin is enabled'
+enabled_incomplete: 'Plugin config is incomplete/corrupt make sure all values are correct and webhook link is valid'
+enabled_debug: 'Plugin is enabled + debug enabled'
+enabled_defualtlang: 'Language is invalid check config.yml, language set to english as defualt'
+
+ingame: 'Command /discord can only be used in-game'
+---

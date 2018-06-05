@@ -1,4 +1,5 @@
 <?php
+
 # +-------------------------------------------------+
 # |              McToDiscord - VER 1.3              |
 # |-------------------------------------------------|
@@ -35,15 +36,34 @@ class Main extends PluginBase implements Listener{
             //Use default, not PM.
         }
         $this->saveResource("config.yml");
+        $this->saveResource("help/chinese.txt");
+        $this->saveResource("help/english.txt");
+        $this->saveResource("help/french.txt");
+        $this->saveResource("help/german.txt");
+        $this->saveResource("help/spanish.txt");
+        $this->saveResource("lang/chinese.yml");
+        $this->saveResource("lang/english.yml");
+        $this->saveResource("lang/french.yml");
+        $this->saveResource("lang/german.yml");
+        $this->saveResource("lang/spanish.yml");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
+        $this->language = strtolower($this->cfg->get("language"));
+        $os = array('english', 'spanish', 'german', 'chinese');
+        if (in_array($this->language, $os) == false) {
+            $this->language = 'english';
+        }
+        $this->responses = new Config($this->getDataFolder()."lang/".$this->language.".yml", Config::YAML, []);
+        if($this->cfg->get('debug')){
+            $this->getLogger()->info($this->responses->get("enabled"));
+        }
         $tmp = $this->cfg->get("discord");
         $this->enabled = false;
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-        if($tmp == "false"){
-            $this->getLogger()->info(C::RED."Plugin is disabled because discord was set to false in config.yml");
+        if($tmp == false){
+            $this->getLogger()->info(C::RED.$this->responses->get('disabled_config'));
             return;
         }
-        if($tmp == "true"){
+        if($tmp == true){
             $url = $this->cfg->get("webhook_url");
             $query = "https://discordapp.com/api/webhooks/";
             if(substr($url, 0, strlen($query)) == $query) {
@@ -87,7 +107,6 @@ class Main extends PluginBase implements Listener{
                 return true;
 			}
             if(!$sender instanceof Player){
-                //$this->sendMessage("[**Console**] : ".implode(" ", $args));
                 $sender->sendMessage(C::RED."Please run this command in-game");
                 return true;
             }
@@ -103,7 +122,7 @@ class Main extends PluginBase implements Listener{
                     return true;
                 } else {
                     $this->sendMessage($name, "[".$sender->getNameTag()."] : ".implode(" ", $args));
-                    $sender->sendMessage(C::AQUA.implode(" ", $args).C::GREEN." Was sent to discord.");
+                    $sender->sendMessage(C::AQUA."Message was sent to discord.");
                 }
 			}
             return true;
@@ -122,7 +141,6 @@ class Main extends PluginBase implements Listener{
         $format = $this->cfg->get("webhook_playerJoinFormat");
         $msg = str_replace("{player}",$playername,$format);
         $this->sendMessage($playername, $msg);
-        // BASICHUD -> $event->getPlayer()->sendPopup(C::BOLD . C::GREEN . $playername. " ". C::BLACK." Welcome");
     }
 
     public function onQuit(PlayerQuitEvent $event){
@@ -175,7 +193,7 @@ class Main extends PluginBase implements Listener{
             }
         }
         if($result["success"]) {
-            $player->sendMessage(C::AQUA."[MCPE->Discord] ".C::GREEN."Discord message was send!");
+            $player->sendMessage(C::AQUA."[MCPE->Discord] ".C::GREEN."Discord message was sent!");
         }
         else{
             $this->getLogger()->error(C::RED."Error: ".$result["Error"]);
@@ -196,8 +214,6 @@ class Main extends PluginBase implements Listener{
 	        "content" => $msg,
             "username" => $name
         ];
-
-        //USE ASYNC HERE
 
         $this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
         return true;

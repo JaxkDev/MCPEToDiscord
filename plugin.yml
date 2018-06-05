@@ -7,10 +7,11 @@ api:
 - 3.0.0-ALPHA11
 - 3.0.0-ALPHA12
 main: Jack\DiscordMCPE\Main
+
 commands:
   discord:
     description: Send an message to Discord!
-    permission: discord.send
+    permission: op
     usage: /discord MESSAGE
     defualt: true
     aliases:

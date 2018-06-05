@@ -5,6 +5,10 @@
 
 [![](https://poggit.pmmp.io/shield.dl.total/MCPEToDiscord)](https://poggit.pmmp.io/p/MCPEToDiscord)
 
-# MCPEToDiscord 1.2
-## Made by Jackthehack21 all hand writen, there may be other mcpe->disocrd plugins but this is my own creation.
+# MCPEToDiscord 1.3
 
+## Whats new in 1.3?
+
+### More languages !
+With 4 new languages: chinese, french, german and spanish
+please note these translations may be wrong feel free to request a change

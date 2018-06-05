@@ -1,0 +1,22 @@
+---
+discord                         - Setze dies auf wahr oder falsch, um das Plugin zu aktivieren / deaktivieren
+
+debug                           - Setzen Sie dies auf wahr oder falsch (empfohlen, wenn nicht anders angegeben)
+
+webhook_url                     - Setze dies auf die Webhook-URL von Dissonanz
+webhook_name                    - Setzen Sie dies auf den Namen, den der Webhook haben soll
+webhook_playerChat?             - Setzen Sie dies auf true | false, um den gesamten Chat an den Webhook zu senden.
+webhook_playerJoin?             - Setze dies auf true | false, um eine Nachricht zu senden, wenn ein Spieler sich einem Webhook anschließt.
+webhook_playerLeave?            - Setze dies auf true | false, um eine Nachricht zu senden, wenn ein Spieler den Webhook verlässt.
+webhook_playerDeath?            - Setze dies auf true | false, um eine Nachricht zu senden, wenn ein Spieler zum Webhook stirbt.
+webhook_playerChangeGamemode?   - Setzen Sie dies auf true | false, um eine Nachricht zu senden, wenn ein Spieler den GameMode zum Webhook wechselt.
+webhook_playerChatFormat        - Alles mit den Werten {time} {player} und {msg} müssen Sie nicht alle verwenden.
+webhook_playerJoinFormat        - Alles mit dem Wert {player}
+webhook_playerLeaveFormat       - Alles mit dem Wert {player}
+webhook_playerDeathFormat       - Alles mit dem Wert {player}
+
+other_pluginEnabled?            - Senden Sie eine Nachricht an Disharmonie, wenn das Plugin startet (true | false)
+other_pluginDisabled?           - Senden Sie eine Nachricht an Disharmonie, wenn das Plugin stoppt (true | false)
+other_pluginEnabledFormat       - Zu sendende Nachricht, wenn das Plugin aktiviert ist
+other_pluginDisabledFormat      - Zu sendende Nachricht, wenn das Plugin deaktiviert ist
+...

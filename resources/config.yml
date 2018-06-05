@@ -14,14 +14,19 @@
 # |                                                 |
 # +-------------------------------------------------+
 
-discord: "true"  #Set this to true or false
 
-webhook_url: ""  #Set this to the webhook URL
-webhook_name: "MCPE Webhook"  #Set this to whatever name the webhook is called
+language: 'english' # english, spanish, german, chinese
+
+debug: false
+
+discord: "true"
+
+webhook_url: ""
+webhook_name: "MCPE Webhook"
 webhook_playerChat?: true
 webhook_playerJoin?: true
 webhook_playerLeave?: true
-webhook_playerDeath?: true  #Set these to true | false
+webhook_playerDeath?: true
 webhook_playerChangeGamemode?: true
 webhook_playerChatFormat: "[ {player} | {time} ] : {msg}"
 webhook_playerJoinFormat: "{player} Joined the server !"

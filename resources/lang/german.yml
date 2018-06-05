@@ -1,0 +1,13 @@
+---
+disabled: 'Plugin ist deaktiviert'
+disabled_config: 'Plugin ist deaktiviert wie in config.yml'
+disabled_corrupt: 'Plugin ist deaktiviert, da config.yml beschädigt ist'
+disabled_error: 'Plugin ist deaktiviert, da ein schwerwiegender Fehler aufgetreten ist'
+
+enabled: 'Plugin ist aktiviert'
+enabled_incomplete: 'Die Plugin-Konfiguration ist unvollständig / fehlerhaft. Stellen Sie sicher, dass alle Werte korrekt sind und der Webhook-Link gültig ist.'
+enabled_debug: 'Plugin ist aktiviert + Debug aktiviert'
+enabled_defualtlang: 'Sprache ist ungültig check config.yml, Sprache auf Englisch gesetzt als defualt'
+
+ingame: 'Befehl / Zwietracht kann nur im Spiel verwendet werden'
+---

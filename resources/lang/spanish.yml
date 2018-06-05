@@ -1,0 +1,13 @@
+---
+disabled: 'El complemento está deshabilitado'
+disabled_config: 'El complemento está deshabilitado como se indica en config.yml'
+disabled_corrupt: 'El complemento está deshabilitado ya que config.yml está corrupto'
+disabled_error: 'El complemento está deshabilitado porque se produjo un error grave'
+
+enabled: 'El complemento está habilitado'
+enabled_incomplete: 'La configuración del complemento está incompleta / corrupta, asegúrese de que todos los valores sean correctos y el enlace webhook sea válido'
+enabled_debug: 'El complemento está habilitado + depuración habilitada'
+enabled_defualtlang: 'Idioma no válido check config.yml, idioma configurado en inglés como defualt'
+
+ingame: 'mando /discord solo se puede usar en el juego'
+---

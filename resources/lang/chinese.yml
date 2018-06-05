@@ -1,0 +1,13 @@
+---
+disabled: "插件已禁用"
+disabled_config: '插件被禁用，如config.yml中所述'
+disabled_corrupt: '插件被禁用，因為config.yml已損壞'
+disabled_error: '發生嚴重錯誤時，插件被禁用'
+
+enabled: '插件已啟用'
+enabled_incomplete: '插件配置不完整/損壞，確保所有值都正確，並且webhook鏈接有效'
+enabled_debug: '啟用插件+啟用調試'
+enabled_defualtlang: '語言無效檢查config.yml，語言設置為英語為defualt'
+
+ingame: '命令/不和只能在遊戲中使用'
+---
