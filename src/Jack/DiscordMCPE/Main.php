@@ -48,7 +48,7 @@ class Main extends PluginBase implements Listener{
             $query = "https://discordapp.com/api/webhooks/";
             if(substr($url, 0, strlen($query)) == $query) {
                 $this->enabled = true;
-                $this->getLogger()->info(C::GREEN."Plugin is Enabled working on: ".$this->getServer()->getIp());
+                $this->getLogger()->info("Plugin is Enabled working on: ".$this->getServer()->getIp());
                 if($this->cfg->get('other_pluginEnabled?') === true){
                     $this->sendMessage("Enable", $this->cfg->get('other_pluginEnabledFormat'));
                 }
@@ -63,7 +63,7 @@ class Main extends PluginBase implements Listener{
 	}
 	
 	public function onDisable(){
-        $this->getLogger()->info(C::RED."Plugin Disabled");
+        $this->getLogger()->info("Plugin Disabled");
         if($this->cfg->get('other_pluginDisabled?') === true){
             $this->sendMessage("Disabled", $this->cfg->get('other_pluginDisabledFormat'));
         }
