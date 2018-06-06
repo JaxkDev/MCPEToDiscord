@@ -65,7 +65,7 @@ class Main extends PluginBase implements Listener{
                 }
                 return;
             } else {
-                $this->getLogger()->warning($this->responses->get('enabled_incomplete'))
+                $this->getLogger()->warning($this->responses->get('enabled_incomplete'));
 		return;
             }
         } 
