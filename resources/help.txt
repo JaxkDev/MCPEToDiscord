@@ -67,3 +67,26 @@ other_pluginDisabled?           - Senden Sie eine Nachricht an Disharmonie, wenn
 other_pluginEnabledFormat       - Zu sendende Nachricht, wenn das Plugin aktiviert ist
 other_pluginDisabledFormat      - Zu sendende Nachricht, wenn das Plugin deaktiviert ist
 ...
+
+---
+discord                         - establezca esto en verdadero o falso para habilitar / deshabilitar el complemento
+
+debug                           - Establezca esto como verdadero o falso (se recomienda falso a menos que se indique lo contrario)
+
+webhook_url                     - establezca esto en la URL del webhook de la discordia
+webhook_name                    - configúrelo como el nombre que desea que sea el webhook.
+webhook_playerChat?             - Establezca esto en verdadero | falso para enviar todo el chat a webhook.
+webhook_playerJoin?             - Establezca esto en true | false para enviar un mensaje cuando un jugador se una al webhook.
+webhook_playerLeave?            - Establezca esto en true | false para enviar un mensaje cuando un jugador se va al webhook.
+webhook_playerDeath?            - Establezca esto en verdadero | falso para enviar un mensaje cuando un jugador muere al webhook.
+webhook_playerChangeGamemode?   - Establezca esto en true | false para enviar un mensaje de texto cuando el GameMode de un jugador cambie a webhook.
+webhook_playerChatFormat        - cualquier cosa con los valores {time} {player} y {msg} no tienes que usarlos todos.
+webhook_playerJoinFormat        - Cualquier cosa con el valor {jugador}
+webhook_playerLeaveFormat       - Cualquier cosa con el valor {jugador}
+webhook_playerDeathFormat       - Cualquier cosa con el valor {jugador}
+
+other_pluginEnabled?            - Enviar un mensaje a la discordia cuando se inicia el complemento (verdadero | falso)
+other_pluginDisabled?           - Enviar un mensaje a la discordia cuando el complemento se detiene (verdadero | falso)
+other_pluginEnabledFormat       - Mensaje para enviar cuando el complemento está habilitado
+other_pluginDisabledFormat      - Mensaje para enviar cuando el plugin está desactivado
+...
