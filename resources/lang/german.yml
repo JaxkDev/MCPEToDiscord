@@ -10,4 +10,9 @@ enabled_debug: 'Plugin ist aktiviert + Debug aktiviert'
 enabled_defualtlang: 'Sprache ist ungültig check config.yml, Sprache auf Englisch gesetzt als defualt'
 
 ingame: 'Befehl / Zwietracht kann nur im Spiel verwendet werden'
+
+args_missing: 'Bitte geben Sie eine Nachricht an, um z. / discord Hallo, diese msg stammt von mcpe '
+command_disabled: 'Befehl / Zwietracht deaktiviert wie in config angegeben'
+send_fail: 'Discord-Nachricht konnte nicht gesendet werden, überprüfen Sie die Konsole auf den vollständigen Fehler.'
+send_success: 'Discord Nachricht wurde gesendet!'
 ---
