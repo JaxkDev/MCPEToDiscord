@@ -21,3 +21,26 @@ other_pluginDisabled？          - 當插件停止時發送msg以爭執（true |
 other_pluginEnabledFormat       - 啟用插件時發送的消息
 other_pluginDisabledFormat      - 當插件被禁用時發送的消息
 ...
+
+---
+discord                         - Set this to true or false to enable/disable the plugin
+
+debug                           - Set this to true or false (recommended false unless told to)
+
+webhook_url                     - Set this to the webhook URL from discord
+webhook_name                    - Set this to the name you want the webhook to be
+webhook_playerChat?             - Set this to true|false to send all chat to webhook.
+webhook_playerJoin?             - Set this to true|false to send a msg when a player join's to webhook.
+webhook_playerLeave?            - Set this to true|false to send a msg when a player leave's to webhook.
+webhook_playerDeath?            - Set this to true|false to send a msg when a player die's to webhook.
+webhook_playerChangeGamemode?   - Set this to true|false to send a msg when a player change's GameMode to webhook.
+webhook_playerChatFormat        - Anything with the values {time} {player} and {msg} you dont have to use them all.
+webhook_playerJoinFormat        - Anything with the value {player}
+webhook_playerLeaveFormat       - Anything with the value {player}
+webhook_playerDeathFormat       - Anything with the value {player}
+
+other_pluginEnabled?            - Send a msg to discord when the plugin starts (true|false)
+other_pluginDisabled?           - Send a msg to discord when the plugin stops (true|false)
+other_pluginEnabledFormat       - Message to send when plugin is enabled
+other_pluginDisabledFormat      - Message to send when plugin is Disabled
+...
