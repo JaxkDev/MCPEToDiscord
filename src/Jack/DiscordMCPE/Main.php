@@ -6,7 +6,7 @@
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Build   : 041#A                                 |
+# | Build   : 055#A                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener{
 	$this->saveResource("lang/".$this->language.".yml")
         $this->responses = new Config($this->getDataFolder()."lang/".$this->language.".yml", Config::YAML, []);
         if($this->cfg->get('debug')){
-            $this->getLogger()->info($this->responses->get("enabled"));
+            $this->getLogger()->info($this->responses->get("enabled_debug"));
         }
         $tmp = $this->cfg->get("discord");
         $this->enabled = false;
@@ -65,16 +65,18 @@ class Main extends PluginBase implements Listener{
                 }
                 return;
             } else {
-                $this->getLogger()->warning(C::RED."You specified a invalid webhook link in config.yml");
-                return;
+                $this->getLogger()->warning($this->responses->get('enabled_incomplete'))
+		return;
             }
         } 
-        $this->getLogger()->warning(C::RED."The config.yml option discord is NOT set to true / false the plugin is disabled");
+        $this->getLogger()->warning($this->responses->get('disabled_config'));
         return;
 	}
 	
 	public function onDisable(){
-        $this->getLogger()->info("Plugin Disabled");
+        if($this->cfg->get('debug')){
+            $this->getLogger()->info($this->responses->get("disabled"));
+        }
         if($this->cfg->get('other_pluginDisabled?') === true){
             $this->sendMessage("Disabled", $this->cfg->get('other_pluginDisabledFormat'));
         }
@@ -90,30 +92,27 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
 		if($cmd->getName() == "discord"){
             if(!$this->enabled) {
-                $sender->sendMessage(C::RED."Plugin Disabled");
+                $sender->sendMessage(C::RED.$this->responses->get("disabled"));
                 return true;
             }
 			if(!isset($args[0])) {
-				$sender->sendMessage(C::RED."Please provide an argument! Usage: /discord (message).");
+				$sender->sendMessage(C::RED.$this->responses->get("args_missing"));
                 return true;
 			}
             if(!$sender instanceof Player){
-                $sender->sendMessage(C::RED."Please run this command in-game");
+                $sender->sendMessage(C::RED.$this->responses->get("ingame"));
                 return true;
             }
 			else{
-                //gmmm
                 $name = $sender->getName();
                 $msg = implode(" ", $args);
                 $check = $this->getConfig()->get("discord");
-                $this->getLogger()->info($check);
-                $sender->sendMessage($check);
                 if($this->enabled == false){ 
-                    $sender->sendMessage(C::RED."Command is disabled by config.yml");
+                    $sender->sendMessage(C::RED.$this->responses->get("command_disabled"));
                     return true;
                 } else {
                     $this->sendMessage($name, "[".$sender->getNameTag()."] : ".implode(" ", $args));
-                    $sender->sendMessage(C::AQUA."Message was sent to discord.");
+                    $sender->sendMessage(C::AQUA.$this->responses->get("send_success"));
                 }
 			}
             return true;
@@ -125,7 +124,7 @@ class Main extends PluginBase implements Listener{
      * @param PlayerJoinEvent $event
      */
 	public function onJoin(PlayerJoinEvent $event){
-        $playername = $event->getPlayer()->getName();
+        $playername = $event->getPlayer()->getDisplayName();
         if($this->cfg->get("webhook_playerJoin?") !== true){
             return;
         }
@@ -135,7 +134,7 @@ class Main extends PluginBase implements Listener{
     }
 
     public function onQuit(PlayerQuitEvent $event){
-        $playername = $event->getPlayer()->getName();
+        $playername = $event->getPlayer()->getDisplayName();
         if($this->cfg->get("webhook_playerLeave?") !== true){
             return;
         }
@@ -145,7 +144,7 @@ class Main extends PluginBase implements Listener{
     }
 
     public function onDeath(PlayerDeathEvent $event){
-        $playername = $event->getPlayer()->getName();
+        $playername = $event->getPlayer()->getDisplayName();
         if($this->cfg->get("webhook_playerDeath?") !== true){
             return;
         }
@@ -184,11 +183,11 @@ class Main extends PluginBase implements Listener{
             }
         }
         if($result["success"]) {
-            $player->sendMessage(C::AQUA."[MCPE->Discord] ".C::GREEN."Discord message was sent!");
+            $player->sendMessage(C::AQUA."[MCPE->Discord] ".C::GREEN.$this->responses->get("send_success"));
         }
         else{
             $this->getLogger()->error(C::RED."Error: ".$result["Error"]);
-            $player->sendMessage(C::AQUA."[MCPE->Discord]] ".C::GREEN."Discord message failed to send, check console for the full error.");
+            $player->sendMessage(C::AQUA."[MCPE->Discord]] ".C::GREEN.$this->responses->get("send_fail"));
         }
     }
 
@@ -202,7 +201,7 @@ class Main extends PluginBase implements Listener{
         $name = $this->cfg->get("webhook_name");
         $webhook = $this->cfg->get("webhook_url");
         $curlopts = [
-	        "content" => $msg,
+	    "content" => $msg,
             "username" => $name
         ];
 
