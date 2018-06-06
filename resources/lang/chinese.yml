@@ -10,4 +10,9 @@ enabled_debug: '啟用插件+啟用調試'
 enabled_defualtlang: '語言無效檢查config.yml，語言設置為英語為defualt'
 
 ingame: '命令/不和只能在遊戲中使用'
+
+args_missing: '請提供一條消息以發送/不和諧你好，這個消息來自mcpe'
+command_disabled: '配置中指定的命令/不符合項'
+send_fail: '不和諧信息發送失敗，請檢查控制台是否有完整的錯誤。'
+send_success: '發送了不一致的消息！'
 ---
