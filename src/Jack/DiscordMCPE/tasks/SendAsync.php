@@ -1,6 +1,6 @@
 <?php
 # +-------------------------------------------------+
-# |              McToDiscord - VER 1.3              |
+# |             MCPEToDiscord - VER 1.3             |
 # |-------------------------------------------------|
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
