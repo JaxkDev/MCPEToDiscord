@@ -1,11 +1,11 @@
 <?php
 # +-------------------------------------------------+
-# |               McToDiscord - VER 1               |
+# |              McToDiscord - VER 1.3              |
 # |-------------------------------------------------|
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Build   : 037#A                                 |
+# | Build   : 055#A                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |
@@ -44,8 +44,9 @@ class SendAsync extends AsyncTask
         $responsejson = json_decode($response, true);
 
         $success = false;
-
-        $error = "Something happened and we don't currently know, sorry.";
+        
+        $plugin = $server->getPluginManager()->getPlugin('MCPEToDiscord');
+        $error = $plugin->responses->get('send_fail');
 
         if($curlerror != ""){
             $error = $curlerror;
