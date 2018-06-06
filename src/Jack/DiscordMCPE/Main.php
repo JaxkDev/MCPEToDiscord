@@ -43,7 +43,7 @@ class Main extends PluginBase implements Listener{
         if (in_array($this->language, $os) == false) {
             $this->language = 'english';
         }
-	$this->saveResource("lang/".$this->language.".yml")
+	$this->saveResource("lang/".$this->language.".yml");
         $this->responses = new Config($this->getDataFolder()."lang/".$this->language.".yml", Config::YAML, []);
         if($this->cfg->get('debug')){
             $this->getLogger()->info($this->responses->get("enabled_debug"));
