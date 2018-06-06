@@ -10,4 +10,9 @@ enabled_debug: 'Plugin is enabled + debug enabled'
 enabled_defualtlang: 'Language is invalid check config.yml, language set to english as defualt'
 
 ingame: 'Command /discord can only be used in-game'
+
+args_missing: 'Please provide a message to send e.g. /discord Hi there this msg is from mcpe'
+command_disabled: 'Command /discord disabled as stated in config'
+send_fail: 'Discord message failed to send, check console for the full error.'
+send_success: 'Discord message was sent!'
 ---
