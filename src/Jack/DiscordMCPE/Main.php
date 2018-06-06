@@ -36,22 +36,14 @@ class Main extends PluginBase implements Listener{
             //Use default, not PM.
         }
         $this->saveResource("config.yml");
-        $this->saveResource("help/chinese.txt");
-        $this->saveResource("help/english.txt");
-        $this->saveResource("help/french.txt");
-        $this->saveResource("help/german.txt");
-        $this->saveResource("help/spanish.txt");
-        $this->saveResource("lang/chinese.yml");
-        $this->saveResource("lang/english.yml");
-        $this->saveResource("lang/french.yml");
-        $this->saveResource("lang/german.yml");
-        $this->saveResource("lang/spanish.yml");
+        $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
         $this->language = strtolower($this->cfg->get("language"));
         $os = array('english', 'spanish', 'german', 'chinese');
         if (in_array($this->language, $os) == false) {
             $this->language = 'english';
         }
+	$this->saveResource("lang/".$this->language.".yml")
         $this->responses = new Config($this->getDataFolder()."lang/".$this->language.".yml", Config::YAML, []);
         if($this->cfg->get('debug')){
             $this->getLogger()->info($this->responses->get("enabled"));
@@ -68,7 +60,6 @@ class Main extends PluginBase implements Listener{
             $query = "https://discordapp.com/api/webhooks/";
             if(substr($url, 0, strlen($query)) == $query) {
                 $this->enabled = true;
-                $this->getLogger()->info("Plugin is Enabled working on: ".$this->getServer()->getIp());
                 if($this->cfg->get('other_pluginEnabled?') === true){
                     $this->sendMessage("Enable", $this->cfg->get('other_pluginEnabledFormat'));
                 }
