@@ -13,6 +13,6 @@ ingame: 'mando /discord solo se puede usar en el juego'
 
 args_missing: 'Proporcione un mensaje para enviar, p. / discordia Hola, este mensaje es de mcpe '
 command_disabled: 'Command / discord disabled como se indica en config'
-send_fail: 'No se pudo enviar el mensaje de discordia, compruebe el error completo en la consola'.
+send_fail: 'No se pudo enviar el mensaje de discordia, compruebe el error completo en la consola'
 send_success: '¡Se envió el mensaje de discordia!'
 ---
