@@ -21,6 +21,7 @@ use pocketmine\event\Listener;
 use pocketmine\utils\TextFormat as C;
 
 use pocketmine\Player;
+use pocketmine\Server;
 use pocketmine\utils\Config;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
