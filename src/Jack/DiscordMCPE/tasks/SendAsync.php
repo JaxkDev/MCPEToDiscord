@@ -44,12 +44,9 @@ class SendAsync extends AsyncTask
         $responsejson = json_decode($response, true);
 
         $success = false;
-        
-        $plugin = $server->getPluginManager()->getPlugin('MCPEToDiscord');
-        $error = $plugin->responses->get('send_fail');
 
         if($curlerror != ""){
-            $error = $curlerror;
+            $error = "Unkown error occured, sorry xD";
         }
 
         elseif (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 204) {
