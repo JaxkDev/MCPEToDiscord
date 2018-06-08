@@ -206,7 +206,8 @@ class Main extends PluginBase implements Listener{
             "username" => $name
         ];
 
-        $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
+        # DEVELOPMENT - $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
+	$this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
 	return true;
     }
 }
