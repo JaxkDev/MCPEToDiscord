@@ -28,7 +28,7 @@ class SendAsync extends AsyncTask
         $this->player = $player;
         $this->webhook = $webhook;
         $this->curlopts = $curlopts;
-        $this->server = $serv
+        $this->server = $serv;
     }
 
     public function onRun()
