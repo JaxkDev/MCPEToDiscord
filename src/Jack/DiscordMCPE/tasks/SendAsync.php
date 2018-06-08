@@ -21,7 +21,7 @@ use pocketmine\utils\TextFormat;
 
 class SendAsync extends AsyncTask
 {
-    private $player, $webhook, $curlopts, $serv
+    private $player, $webhook, $curlopts, $serv;
 
     public function __construct($player, $webhook, $curlopts, $serv)
     {
