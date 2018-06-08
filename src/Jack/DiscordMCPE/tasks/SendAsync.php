@@ -21,14 +21,13 @@ use pocketmine\utils\TextFormat;
 
 class SendAsync extends AsyncTask
 {
-    private $player, $webhook, $curlopts, $serv;
+    private $player, $webhook, $curlopts;
 
-    public function __construct($player, $webhook, $curlopts, $serv)
+    public function __construct($player, $webhook, $curlopts)
     {
         $this->player = $player;
         $this->webhook = $webhook;
         $this->curlopts = $curlopts;
-        $this->server = $serv;
     }
 
     public function onRun()
@@ -46,7 +45,7 @@ class SendAsync extends AsyncTask
 
         $success = false;
         
-        $plugin = $this->$server->getPluginManager()->getPlugin('MCPEToDiscord');
+        $plugin = $server->getPluginManager()->getPlugin('MCPEToDiscord');
         $error = $plugin->responses->get('send_fail');
 
         if($curlerror != ""){
@@ -68,7 +67,7 @@ class SendAsync extends AsyncTask
 
     public function onCompletion(Server $server)
     {
-        $plugin = $this->$server->getPluginManager()->getPlugin('MCPEToDiscord');
+        $plugin = $server->getPluginManager()->getPlugin('MCPEToDiscord');
         if(!$plugin instanceof Main){
             return;
         }
