@@ -65,7 +65,7 @@ class SendAsync extends AsyncTask
         $this->setResult($result, true);
     }
 
-    public function onCompletion(Server $server)
+    public function onCompletion()
     {
         $plugin = $server->getPluginManager()->getPlugin('MCPEToDiscord');
         if(!$plugin instanceof Main){
