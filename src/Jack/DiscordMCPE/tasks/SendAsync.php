@@ -44,6 +44,7 @@ class SendAsync extends AsyncTask
         $responsejson = json_decode($response, true);
 
         $success = false;
+        $error = '';
 
         if($curlerror != ""){
             $error = "Unkown error occured, sorry xD";
