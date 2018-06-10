@@ -18,6 +18,6 @@ We smashed 4 Bugs:
 - No more dodgy names when leaving MC
 - No more true/false notice when sending messages via in-game
 - Added a better issue template so we can smash even more bugs !
-- Changed some logging colors so it will not crash at all.
+- Changed some logging colors.
 
 If you have a question contact us or create a issue !
