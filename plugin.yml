@@ -10,7 +10,7 @@ main: Jack\DiscordMCPE\Main
 
 commands:
   discord:
-    description: Send an message to Discord!
+    description: Send a message to Discord!
     permission: op
     usage: /discord MESSAGE
     defualt: true
