@@ -101,7 +101,7 @@ class Main extends PluginBase implements Listener{
 	    switch($args[0]){
 			case 'version':
 			case 'ver':
-				if(this->cfg->get('debug')){
+				if($this->cfg->get('debug')){
 					$this->getLogger()->info(C::GOLD."=== DETAILS ===");
 					$this->getLogger()->info(C::GREEN."Name     ".C::GOLD.":: ".C::AQUA."MCPEToDiscord");
 					$this->getLogger()->info(C::GREEN."Build    ".C::GOLD.":: ".C::AQUA.$this->build);
