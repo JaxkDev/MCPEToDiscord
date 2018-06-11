@@ -93,7 +93,7 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
         if($cmd->getName() == "discord"){
             if(!isset($args[0])){
-		return;
+		return false;
 	    }
 	        switch($args[0]){
 		    case 'send':
