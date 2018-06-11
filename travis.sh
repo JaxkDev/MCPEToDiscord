@@ -1,2 +1,3 @@
-echo "MCPEToDiscord by Jackthehaxk21"
-exit 0
+echo "+--------------------------------+"
+echo "| MCPEToDiscord by Jackthehaxk21 |"
+echo "+--------------------------------+"
