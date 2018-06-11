@@ -6,7 +6,7 @@
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Build   : 055#A                                 |
+# | Build   : 104#A                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |
@@ -36,6 +36,8 @@ class Main extends PluginBase implements Listener{
             @mkdir($this->getDataFolder());
             //Use default, not PM.
         }
+		$this->build = "104A";
+		$this->version = "1.3.0";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
@@ -92,10 +94,49 @@ class Main extends PluginBase implements Listener{
      */
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
         if($cmd->getName() == "discord"){
-            if(!isset($args[0])){
-		return false;
+        if(!isset($args[0])){
+			$sender->sendMessage(C::RED."Not a valid command try /discord help");
+		    return false;
 	    }
-	        switch($args[0]){
+	    switch($args[0]){
+			case 'version':
+			case 'ver':
+				if(this->cfg->get('debug')){
+					$this->getLogger()->info(C::GOLD."=== DETAILS ===");
+					$this->getLogger()->info(C::GREEN."Name     ".C::GOLD.":: ".C::AQUA."MCPEToDiscord");
+					$this->getLogger()->info(C::GREEN."Build    ".C::GOLD.":: ".C::AQUA.$this->build);
+					$this->getLogger()->info(C::GREEN."Version  ".C::GOLD.":: ".C::AQUA.$this->version);
+					$this->getLogger()->info(C::GREEN."Release  ".C::GOLD.":: ".C::AQUA."Development - ".$this->build);
+					$this->getLogger()->info(C::GOLD."If you plan to create a PR or Issue on github please provide all of this information");
+					$sender->sendMessage(C::GOLD."All details have been sent to the console !");
+					break;
+				} else {
+					$sender->sendMessage("Build - ".$this->build);
+					break;
+				}
+				return true;
+			case 'on':
+		    case 'enable':
+				if($this->enabled){
+					$sender->sendMessage(C::RED."MCPEToDiscord is already enabled !");
+					break;
+				}
+				$this->enabled = true;
+				$this->cfg->set('discord', true);
+				$this->cfg->save(true);
+				$sender->sendMessage(C::GREEN."MCPEToDiscord is now Enabled !");
+				break;
+			case 'disable':
+			case 'off':
+				if(!$this->enabled){
+					$sender->sendMessage(C::RED."MCPEToDiscord is already disabled !");
+					break;
+				}
+				$this->enabled = false;
+				$this->cfg->set('discord', false);
+				$this->cfg->save(true);
+				$sender->sendMessage(C::GREEN."MCPEToDiscord is now Disabled !");
+				break;
 		    case 'send':
 			if(!$this->enabled) {
 			    $sender->sendMessage(C::RED.$this->responses->get("disabled"));
@@ -111,7 +152,6 @@ class Main extends PluginBase implements Listener{
 			}else{
 			    $name = $sender->getName();
 			    $msg = implode(" ", $args);
-			    $check = $this->getConfig()->get("discord");
 			    if($this->enabled == false){ 
 			        $sender->sendMessage(C::RED.$this->responses->get("command_disabled"));
 				break;
