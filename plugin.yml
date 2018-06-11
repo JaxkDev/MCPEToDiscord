@@ -10,9 +10,9 @@ main: Jack\DiscordMCPE\Main
 
 commands:
   discord:
-    description: Send a message to Discord!
+    description: Discord commands use /discord help for all cmds
     permission: op
-    usage: /discord MESSAGE
+    usage: /discord help
     defualt: true
     aliases:
     - dc
