@@ -1,6 +1,8 @@
 language: php
 php:
   - "7.2"
+before_script:
+  - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax errors detected"; then exit 1; fi
 #before_script:
 #  - '! find . -type f -name "*.php" -exec php -d error_reporting=32767 -l {} \; 2>&1 >&- | grep "^"'
 #before_script:
