@@ -27,7 +27,7 @@ webhook_playerChat?: true
 webhook_playerJoin?: true
 webhook_playerLeave?: true
 webhook_playerDeath?: true
-webhook_playerChangeGamemode?: true
+
 webhook_playerChatFormat: "[ {player} | {time} ] : {msg}"
 webhook_playerJoinFormat: "{player} Joined the server !"
 webhook_playerLeaveFormat: "{player} Left the server !"
