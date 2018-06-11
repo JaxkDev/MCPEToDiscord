@@ -3,7 +3,7 @@
 ## IF YOU DO USE THIS WITHOUT PERMISSION, ANY ISSUES/PR'S CREATED WILL BE CLOSED INSTANTLY
 ## ON TOP OF THAT THIS DEV BARNCH MAY BREAK YOUR SERVER (SMALL CHANCE BUT STILL A CHANCE) WE
 ## HAVE WARNED YOU !
-
+[![Build Status](https://travis-ci.org/jackthehack21/MCPEToDiscord.svg?branch=dev)](https://travis-ci.org/jackthehack21/MCPEToDiscord)
 
 [![](https://poggit.pmmp.io/shield.state/MCPEToDiscord)](https://poggit.pmmp.io/p/MCPEToDiscord)
 
