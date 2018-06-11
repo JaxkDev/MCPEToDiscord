@@ -1,2 +1,2 @@
 echo "MCPEToDiscord by Jackthehaxk21"
-exit 1
+exit 0
