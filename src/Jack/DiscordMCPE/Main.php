@@ -36,6 +36,8 @@ class Main extends PluginBase implements Listener{
             @mkdir($this->getDataFolder());
             //Use default, not PM.
         }
+	$this->build = "55A";
+	$this->version = "1.3.0";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
