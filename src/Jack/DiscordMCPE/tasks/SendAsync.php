@@ -1,11 +1,11 @@
 <?php
 # +-------------------------------------------------+
-# |             MCPEToDiscord - VER 1.3             |
+# |            MCPEToDiscord - VER 1.3.1            |
 # |-------------------------------------------------|
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Build   : 104#A                                 |
+# | Version : 1.3.1                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |
