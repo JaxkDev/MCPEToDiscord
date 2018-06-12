@@ -1,12 +1,12 @@
 <?php
 
 # +-------------------------------------------------+
-# |             MCPEToDiscord - VER 1.3             |
+# |            MCPEToDiscord - VER 1.3.1            |
 # |-------------------------------------------------|
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Build   : 104#A                                 |
+# | Version : 1.3.1                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |
@@ -37,7 +37,7 @@ class Main extends PluginBase implements Listener{
             //Use default, not PM.
         }
 		$this->build = "104A";
-		$this->version = "1.3.0";
+		$this->version = "1.3.1";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener{
         if (in_array($this->language, $os) == false) {
             $this->language = 'english';
         }
-	$this->saveResource("lang/".$this->language.".yml");
+	    $this->saveResource("lang/".$this->language.".yml");
         $this->responses = new Config($this->getDataFolder()."lang/".$this->language.".yml", Config::YAML, []);
         if($this->cfg->get('debug')){
             $this->getLogger()->info($this->responses->get("enabled_debug"));
