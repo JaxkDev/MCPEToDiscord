@@ -1,18 +1,31 @@
 ---
-disabled: "插件已禁用"
-disabled_config: '插件被禁用，如config.yml中所述'
-disabled_corrupt: '插件被禁用，因為config.yml已損壞'
-disabled_error: '發生嚴重錯誤時，插件被禁用'
+disabled：'插件已禁用'
+disabled_config：'插件被禁用，如config.yml中所述'
+disabled_corrupt：'插件被禁用，因為config.yml已損壞'
+disabled_error：'發生嚴重錯誤時，插件被禁用'
 
-enabled: '插件已啟用'
-enabled_incomplete: '插件配置不完整/損壞，確保所有值都正確，並且webhook鏈接有效'
-enabled_debug: '啟用插件+啟用調試'
-enabled_defualtlang: '語言無效檢查config.yml，語言設置為英語為defualt'
+enabled：'插件已啟用'
+enabled_incomplete：'插件配置不完整/損壞，確保所有值都正確，並且webhook鏈接有效'
+enabled_debug：'啟用插件+啟用調試'
+enabled_defualtlang：'語言無效檢查config.yml，語言設置為英語為defualt'
 
-ingame: '命令/不和只能在遊戲中使用'
+ingame：'命令/不和只能在遊戲中使用'
 
-args_missing: '請提供一條消息以發送/不和諧你好，這個消息來自mcpe'
-command_disabled: '配置中指定的命令/不符合項'
-send_fail: '不和諧信息發送失敗，請檢查控制台是否有完整的錯誤。'
-send_success: '發送了不一致的消息！'
+success：'成功！'
+already_disabled：'插件已被禁用'
+already_enabled：'插件已啟用'
+now_disabled：'現在禁用插件'
+now_enabled：'現在啟用插件'
+
+debug_info_response：'所有細節已發送到控制台！'
+info_note：'如果您打算在github上創建PR或問題，請提供所有這些信息。'
+
+no_language：'沒有語言說，請選擇下列之一：'
+language_already：'語言已經'
+invalid_language：提供的語言無效。
+invalid_command：'不是有效的命令嘗試，/不協調的幫助'
+args_missing：'請提供一條信息發送/不和諧發送您好，這裡msg是從mcpe'
+command_disabled：'命令</discord send>已禁用，如config中所述'
+send_fail：'不和諧信息發送失敗，請檢查控制台是否有完整的錯誤。'
+send_success：'發送了不一致的消息！'
 ---

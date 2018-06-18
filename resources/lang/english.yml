@@ -11,8 +11,21 @@ enabled_defualtlang: 'Language is invalid check config.yml, language set to engl
 
 ingame: 'Command /discord can only be used in-game'
 
-args_missing: 'Please provide a message to send e.g. /discord Hi there this msg is from mcpe'
-command_disabled: 'Command /discord disabled as stated in config'
+success: 'Success !'
+already_disabled: 'Plugin is already disabled'
+already_enabled: 'Plugin is already enabled'
+now_disabled: 'Plugin is now disabled'
+now_enabled: 'Plugin is now enabled'
+
+debug_info_response: 'All details have been sent to the console !'
+info_note: 'If you plan to create a PR or Issue on github please provide all of this information.' 
+
+no_language: 'No language said please choose one of the following:'
+language_already: 'Language is already '
+invalid_language: 'Invalid language provided.'
+invalid_command: 'Not a valid command try, /discord help'
+args_missing: 'Please provide a message to send e.g. /discord send Hi there this msg is from mcpe'
+command_disabled: 'Command </discord send> disabled as stated in config'
 send_fail: 'Discord message failed to send, check console for the full error.'
 send_success: 'Discord message was sent!'
 ---

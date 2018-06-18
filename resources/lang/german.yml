@@ -2,7 +2,7 @@
 disabled: 'Plugin ist deaktiviert'
 disabled_config: 'Plugin ist deaktiviert wie in config.yml'
 disabled_corrupt: 'Plugin ist deaktiviert, da config.yml beschädigt ist'
-disabled_error: 'Plugin ist deaktiviert, da ein schwerwiegender Fehler aufgetreten ist'
+disable_error: 'Plugin ist deaktiviert, da ein schwerwiegender Fehler aufgetreten ist'
 
 enabled: 'Plugin ist aktiviert'
 enabled_incomplete: 'Die Plugin-Konfiguration ist unvollständig / fehlerhaft. Stellen Sie sicher, dass alle Werte korrekt sind und der Webhook-Link gültig ist.'
@@ -11,8 +11,21 @@ enabled_defualtlang: 'Sprache ist ungültig check config.yml, Sprache auf Englis
 
 ingame: 'Befehl / Zwietracht kann nur im Spiel verwendet werden'
 
-args_missing: 'Bitte geben Sie eine Nachricht an, um z. / discord Hallo, diese msg stammt von mcpe '
-command_disabled: 'Befehl / Zwietracht deaktiviert wie in config angegeben'
+success: "Erfolg!"
+already_disabled: 'Plugin ist bereits deaktiviert'
+already_enabled: 'Plugin ist bereits aktiviert'
+now_disabled: 'Plugin ist jetzt deaktiviert'
+now_enabled: 'Plugin ist jetzt aktiviert'
+
+debug_info_response: 'Alle Details wurden an die Konsole gesendet!'
+info_note: 'Wenn Sie planen, eine PR oder Ausgabe auf GitHub zu erstellen, geben Sie bitte alle diese Informationen an.'
+
+no_language: 'Keine Sprache, bitte wähle eine der folgenden Optionen:'
+language_ready: 'Sprache ist schon'
+invalid_language: 'Ungültige Sprache bereitgestellt.'
+invalid_command: 'Kein gültiger Befehl try, / discord help'
+args_missing: 'Bitte geben Sie eine Nachricht an, um z. / discord send Hi da diese msg ist von mcpe '
+command_disabled: 'Befehl </ discord send> deaktiviert wie in config'
 send_fail: 'Discord-Nachricht konnte nicht gesendet werden, überprüfen Sie die Konsole auf den vollständigen Fehler.'
 send_success: 'Discord Nachricht wurde gesendet!'
 ---
