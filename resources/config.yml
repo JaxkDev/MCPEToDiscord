@@ -1,25 +1,10 @@
 ---
 
-# +-------------------------------------------------+
-# |             MCPEToDiscord - VER 1.3             |
-# |-------------------------------------------------|
-# |                                                 |
-# | Made by : Jackthehack21 (gangnam253@gmail.com)  |
-# |                                                 |
-# | Build   : 055#A                                 |
-# |                                                 |
-# | Details : This plugin is aimed to give players  |
-# |           A simple but fun view of what plugins |
-# |           Can do to modify your MCPE experience.|
-# |                                                 |
-# +-------------------------------------------------+
-
-
 language: 'english' # english, spanish, german, chinese
 
 debug: false
 
-discord: "true"
+discord: true
 
 webhook_url: ""
 webhook_name: "MCPE Webhook"

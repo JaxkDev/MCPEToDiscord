@@ -1,0 +1,31 @@
+---
+disabled: 'Plugin está desativado'
+disabled_config: 'Plugin está desativado conforme indicado em config.yml'
+disabled_corrupt: 'Plugin está desabilitado porque o config.yml está corrompido'
+disabled_error: 'O plug-in está desativado porque ocorreu um erro grave'
+
+enabled: 'Plugin está ativado'
+enabled_incomplete: 'A configuração do plug-in está incompleta / corrompida, certifique-se de que todos os valores estejam corretos e o link do webhook é válido'
+enabled_debug: 'Plugin está ativado + debug ativado'
+enabled_defualtlang: 'O idioma é inválido, verifique o config.yml, o idioma está definido para o inglês como defualt'
+
+ingame: 'Comando / discórdia só pode ser usado no jogo'
+
+success: 'Sucesso!'
+already_disabled: 'Plugin já está desativado'
+already_enabled: 'Plugin já está habilitado'
+now_disabled: 'O plug-in está desativado'
+now_enabled: 'Plugin está ativado agora'
+
+debug_info_response: 'Todos os detalhes foram enviados para o console!'
+info_note: 'Se você planeja criar um PR ou um problema no github, forneça todas essas informações.'
+
+no_language: 'Nenhuma língua disse, por favor escolha uma das seguintes opções:'
+language_already: 'O idioma já é'
+invalid_language: 'Linguagem inválida fornecida'
+invalid_command: 'Não é um comando válido, tente / discord help'
+args_missing: 'Por favor, forneça uma mensagem para enviar, por ex. / discord send Oi ai esta msg é do mcpe '
+command_disabled: 'Comando </ discord send> desativado conforme indicado em config'
+send_fail: 'A mensagem de discordância não foi enviada, verifique a consola quanto ao erro completo.'
+send_success: 'A mensagem de discórdia foi enviada!'
+---
