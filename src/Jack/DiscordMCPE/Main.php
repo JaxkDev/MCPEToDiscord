@@ -1,12 +1,12 @@
 <?php
 
 # +-------------------------------------------------+
-# |            MCPEToDiscord - VER 1.3.1            |
+# |            MCPEToDiscord - VER 1.3.2            |
 # |-------------------------------------------------|
 # |                                                 |
 # | Made by : Jackthehack21 (gangnam253@gmail.com)  |
 # |                                                 |
-# | Version : 1.3.1                                 |
+# | Version : 1.3.2                                 |
 # |                                                 |
 # | Details : This plugin is aimed to give players  |
 # |           A simple but fun view of what plugins |
@@ -36,8 +36,8 @@ class Main extends PluginBase implements Listener{
             @mkdir($this->getDataFolder());
             //Use default, not PM.
         }
-		$this->build = "123A";
-		$this->version = "1.3.1";
+		$this->build = "142A";
+		$this->version = "1.3.2";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
@@ -282,8 +282,8 @@ class Main extends PluginBase implements Listener{
             "username" => $name
         ];
 
-        # DEVELOPMENT - $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
-	$this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
+        $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
+	# OLD $this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
 	return true;
     }
 }
