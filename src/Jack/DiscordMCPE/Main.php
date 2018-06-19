@@ -106,7 +106,7 @@ class Main extends PluginBase implements Listener{
 					$this->getLogger()->info(C::GREEN."Name     ".C::GOLD.":: ".C::AQUA."MCPEToDiscord");
 					$this->getLogger()->info(C::GREEN."Build    ".C::GOLD.":: ".C::AQUA.$this->build);
 					$this->getLogger()->info(C::GREEN."Version  ".C::GOLD.":: ".C::AQUA.$this->version);
-					$this->getLogger()->info(C::GREEN."Release  ".C::GOLD.":: ".C::AQUA."Development - ".$this->build);
+					$this->getLogger()->info(C::GREEN."Release  ".C::GOLD.":: ".C::AQUA."Public Release - ".$this->build);
 					$this->getLogger()->info(C::GOLD.$this->responses->get('info_note'));
 					$sender->sendMessage(C::GOLD.$this->responses->get('debug_info_response'));
 					break;
