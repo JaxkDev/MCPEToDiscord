@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jackthehack21/MCPEToDiscord.svg?branch=dev)](https://travis-ci.org/jackthehack21/MCPEToDiscord)
+[![Build Status](https://travis-ci.org/jackthehack21/MCPEToDiscord.svg?branch=master)](https://travis-ci.org/jackthehack21/MCPEToDiscord)
 
 [![](https://poggit.pmmp.io/shield.state/MCPEToDiscord)](https://poggit.pmmp.io/p/MCPEToDiscord)
 
