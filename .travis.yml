@@ -4,7 +4,7 @@ php:
 before_script:	
   - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax errors detected"; then exit 1; fi	
 script:	
-  - curl -s -O https://raw.githubusercontent.com/jackthehack21/MCPEToDiscord/travis.sh	
+  - curl -s -O https://raw.githubusercontent.com/jackthehack21/MCPEToDiscord/master/travis.sh	
   - chmod u+x travis.sh	
   - './travis.sh'	
 #before_script:	
