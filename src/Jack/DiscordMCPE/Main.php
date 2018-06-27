@@ -142,7 +142,7 @@ class Main extends PluginBase implements Listener{
                     $sender->sendMessage(C::RED.$this->responses->get("disabled"));
                     break;
                 }
-                if(!isset($args[0])) {
+                if(!isset($args[1])) {
                     $sender->sendMessage(C::RED.$this->responses->get("args_missing"));
                     break;
                 }
@@ -151,12 +151,11 @@ class Main extends PluginBase implements Listener{
                     break;
                 }else{
                     $name = $sender->getName();
-                    $msg = implode(" ", $args);
                     if($this->enabled == false){ 
                         $sender->sendMessage(C::RED.$this->responses->get("command_disabled"));
                     break;
                     } else {
-                    $this->sendMessage($name, "[".$sender->getNameTag()."] : ".implode(" ", $args));
+                    $this->sendMessage($name, "[".$sender->getNameTag()."] : ".str_replace($args[0]." ", "",implode(" ", $args)));
                     $sender->sendMessage(C::AQUA.$this->responses->get("send_success"));
                     }
                 }
