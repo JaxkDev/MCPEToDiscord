@@ -1,6 +1,6 @@
 ---
 
-language: 'english' # english, spanish, german, chinese
+language: 'english' # english, spanish, german, traditional_chinese, simplified_chinese
 
 debug: false
 
