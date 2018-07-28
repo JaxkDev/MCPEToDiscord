@@ -42,7 +42,7 @@ class Main extends PluginBase implements Listener{
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
         $this->language = strtolower($this->cfg->get("language"));
-        $os = array('english', 'spanish', 'german', 'chinese', 'french', 'portuguese');
+        $os = array('english', 'spanish', 'german', 'traditional_chinese', 'simplified_chinese', 'french', 'portuguese');
         if (in_array($this->language, $os) == false) {
             $this->language = 'english';
         }
@@ -165,7 +165,7 @@ class Main extends PluginBase implements Listener{
                     $sender->sendMessage(C::RED.$this->responses->get("no_language")."\n- English\n- Spanish\n- German\n- Chinese\n- French\n- Portuguese");
                     break;
                 } else {
-                    $os = array('english', 'spanish', 'german', 'chinese', 'french', 'portuguese');
+                    $os = array('english', 'spanish', 'german', 'traditional_chinese', 'simplified_chinese', 'french', 'portuguese');
                         if (in_array(strtolower($args[1]), $os) == false) {
                             $sender->sendMessage(C::RED.$this->responses->get("invalid_language"));
                     break;
