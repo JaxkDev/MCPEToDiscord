@@ -2,7 +2,7 @@
 ---
 discord                         - 將此設置為true或false以啟用/禁用插件
 
-purechat                        - 如果啟用{rank}和{nickname}，則將此值設置為true或false。
+pureperms                        - 如果啟用{group}和{nickname}，則將此值設置為true或false。
 factions                        - 如果啟用{faction}並且可以使用{fac_rank}，則將此值設置為true或false。
 
 debug                           - 將其設置為true或false（除非告知，否則建議為false）
@@ -28,7 +28,7 @@ other_pluginDisabledFormat      - 當插件被禁用時發送的消息
 ---
 discord                         - Set this to true or false to enable/disable the plugin
 
-purechat                        - Set this to true or false if enabled {rank} and {nickname} can be used.
+pureperms                        - Set this to true or false if enabled {group} and {nickname} can be used.
 factions                        - Set this to true or false if enabled {faction} and {fac_rank} can be used.
 
 debug                           - Set this to true or false (recommended false unless told to)
@@ -54,7 +54,7 @@ other_pluginDisabledFormat      - Message to send when plugin is Disabled
 ---
 discord                         - Setze dies auf wahr oder falsch, um das Plugin zu aktivieren / deaktivieren
 
-purechat                        - Setzen Sie dies auf wahr oder falsch, wenn {rank} und {nickname} aktiviert sind.
+pureperms                        - Setzen Sie dies auf wahr oder falsch, wenn {group} und {nickname} aktiviert sind.
 factions                        - Setzen Sie dies auf Wahr oder Falsch, wenn {faction} und {fac_rank} aktiviert sind.
 
 debug                           - Setzen Sie dies auf wahr oder falsch (empfohlen, wenn nicht anders angegeben)
@@ -80,7 +80,7 @@ other_pluginDisabledFormat      - Zu sendende Nachricht, wenn das Plugin deaktiv
 ---
 discord                         - establezca esto en verdadero o falso para habilitar / deshabilitar el complemento
 
-purechat                        - Establezca esto como verdadero o falso si está habilitado {rank} y {nickname} puede ser utilizado.
+pureperms                        - Establezca esto como verdadero o falso si está habilitado {group} y {nickname} puede ser utilizado.
 factions                        - Establezca esto en verdadero o falso si está habilitado {faction} y {fac_rank} puede ser utilizado.
 
 debug                           - Establezca esto como verdadero o falso (se recomienda falso a menos que se indique lo contrario)

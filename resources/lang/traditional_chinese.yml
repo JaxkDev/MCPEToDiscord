@@ -9,8 +9,8 @@ enabled_incomplete: '插件設定不完整/損壞，確保所有值都正確，�
 enabled_debug: '啟用插件+啟用調試'
 enabled_defualtlang: '語言無效檢查config.yml，語言設定為英語為defualt'
 
-purechat_good: 'PureChat被發現並加載！'
-purechat_bad: '未找到PureChat，支持{nickname}和{rank}將不起作用。'
+pureperms_good: 'PurePerms被發現並加載！'
+pureperms_bad: '未找到PurePerms，支持{nickname}和{rank}將不起作用。'
 
 factions_good: 'FactionsPro被發現並加載！'
 factions_bad: '未找到FactionsPro，支持{faction}和{fac_rank}將無效。'

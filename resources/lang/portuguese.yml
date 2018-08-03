@@ -9,8 +9,8 @@ enabled_incomplete: 'A configuração do plug-in está incompleta / corrompida, 
 enabled_debug: 'Plugin está ativado + debug ativado'
 enabled_defualtlang: 'O idioma é inválido, verifique o config.yml, o idioma está definido para o inglês como defualt'
 
-purechat_good: 'PureChat foi encontrado e carregado!'
-purechat_bad: 'PureChat não encontrado, o suporte para {nickname} e {rank} não funcionará.'
+pureperms_good: 'PurePerms foi encontrado e carregado!'
+pureperms_bad: 'PurePerms não encontrado, o suporte para {nickname} e {rank} não funcionará.'
 
 factions_good: 'FactionsPro foi encontrado e carregado!'
 factions_bad: 'FactionsPro não encontrado, suporte para {faction} e {fac_rank} não funcionará.'
