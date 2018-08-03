@@ -15,4 +15,4 @@ deploy:
   file: MCPEToDiscord.phar
   skip_cleanup: true
   on:
-    tags: true
+    repo: jackthehack21/MCPEToDiscord
