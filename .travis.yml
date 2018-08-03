@@ -15,4 +15,4 @@ deploy:
   file: MCPEToDiscord.phar
   skip_cleanup: true
   on:
-    repo: jackthehack21/MCPEToDiscord
+    branch: master
