@@ -51,18 +51,20 @@ class Main extends PluginBase implements Listener{
         if($this->cfg->get('debug')){
             $this->getLogger()->info($this->responses->get("enabled_debug"));
         }
-        if($this->cfg->get('purechat')){
-            $this->pc = $this->getServer()->getPluginManager()->getPlugin('PureChat');
-            if($this->pc == null){
+        $this->pp = null;
+        if($this->cfg->get('pureperms')){
+            $this->pp = $this->getServer()->getPluginManager()->getPlugin('PurePerms');
+            if($this->pp === null){
                 if($this->cfg->get('debug')){
-                    $this->getLogger()->error($this->responses->get('purechat_bad'));
+                    $this->getLogger()->error($this->responses->get('pureperms_bad'));
                 }
             } else {
                 if($this->cfg->get('debug')){
-                    $this->getLogger()->info($this->responses->get('purechat_good'));
+                    $this->getLogger()->info($this->responses->get('pureperms_good'));
                 }
             }
         }
+        $this->f = null;
         if($this->cfg->get('factions')){
             $this->f = $this->getServer()->getPluginManager()->getPlugin('FactionsPro');
             if($this->f == null){
@@ -224,43 +226,88 @@ class Main extends PluginBase implements Listener{
      * @param PlayerJoinEvent $event
      */
 	public function onJoin(PlayerJoinEvent $event){
-        $playername = $event->getPlayer()->getDisplayName(); //START HERE AND FIX THIS *****
+        $playername = $event->getPlayer()->getName(); //START HERE AND FIX THIS *****
         if($this->cfg->get("webhook_playerJoin?") !== true){
             return;
         }
         $format = $this->cfg->get("webhook_playerJoinFormat");
         $msg = str_replace("{player}",$playername,$format);
-        if($this->pc !== null){
-            $msg = str_replace("{nickname}", $event->getPlayer()->getDisplayName());
+        if(!is_null($this->pp)){
+            $tmp = $this->pp->getUserDataMgr()->getGroup($event->getPlayer());
+            $msg = str_replace("{group}", $tmp->getName(), $msg);
+            $msg = str_replace("{nickname}", $event->getPlayer()->getDisplayName(), $msg);
         }
-        if($this->f !== null){
-
+        if(!is_null($this->f)){
+            $fac = $this->f->getFaction($playername);
+            $rank = 'Member';
+            if($this->f->isOfficer($playername)){
+                $rank = 'Officer';
+            }
+            if($this->f->isLeader($playername)){
+                $rank = 'Leader';
+            }
+            $msg = str_replace("{fac_rank}", $rank, $msg);
+            $msg = str_replace("{faction}", $fac, $msg);
         }
         $this->sendMessage($playername, $msg);
     }
 
     public function onQuit(PlayerQuitEvent $event){
-        $playername = $event->getPlayer()->getDisplayName();
+        $playername = $event->getPlayer()->getName();
         if($this->cfg->get("webhook_playerLeave?") !== true){
             return;
         }
         $format = $this->cfg->get("webhook_playerLeaveFormat");
         $msg = str_replace("{player}",$playername,$format);
+        if(!is_null($this->pp)){
+            $tmp = $this->pp->getUserDataMgr()->getGroup($event->getPlayer());
+            $msg = str_replace("{group}", $tmp->getName(), $msg);
+            $msg = str_replace("{nickname}", $event->getPlayer()->getDisplayName(), $msg);
+        }
+        if(!is_null($this->f)){
+            $fac = $this->f->getFaction($playername);
+            $rank = 'Member';
+            if($this->f->isOfficer($playername)){
+                $rank = 'Officer';
+            }
+            if($this->f->isLeader($playername)){
+                $rank = 'Leader';
+            }
+            $msg = str_replace("{fac_rank}", $rank, $msg);
+            $msg = str_replace("{faction}", $fac, $msg);
+        }
         $this->sendMessage($playername, $msg);
     }
 
     public function onDeath(PlayerDeathEvent $event){
-        $playername = $event->getPlayer()->getDisplayName();
+        $playername = $event->getPlayer()->getName();
         if($this->cfg->get("webhook_playerDeath?") !== true){
             return;
         }
         $format = $this->cfg->get("webhook_playerDeathFormat");
         $msg = str_replace("{player}",$playername,$format);
+        if(!is_null($this->pp)){
+            $tmp = $this->pp->getUserDataMgr()->getGroup($event->getPlayer());
+            $msg = str_replace("{group}", $tmp->getName(), $msg);
+            $msg = str_replace("{nickname}", $event->getPlayer()->getDisplayName(), $msg);
+        }
+        if(!is_null($this->f)){
+            $fac = $this->f->getFaction($playername);
+            $rank = 'Member';
+            if($this->f->isOfficer($playername)){
+                $rank = 'Officer';
+            }
+            if($this->f->isLeader($playername)){
+                $rank = 'Leader';
+            }
+            $msg = str_replace("{fac_rank}", $rank, $msg);
+            $msg = str_replace("{faction}", $fac, $msg);
+        }
         $this->sendMessage($playername, $msg);
     }
 
     public function onChat(PlayerChatEvent $event){
-	    $playername = $event->getPlayer()->getNameTag();
+	    $playername = $event->getPlayer()->getName();
         $message = $event->getMessage();
         $ar = getdate();
         $time = $ar['hours'].":".$ar['minutes'];
@@ -269,6 +316,23 @@ class Main extends PluginBase implements Listener{
         }
         $format = $this->cfg->get("webhook_playerChatFormat");
         $msg = str_replace("{msg}",$message, str_replace("{time}",$time, str_replace("{player}",$playername,$format)));
+        if(!is_null($this->pp)){
+            $tmp = $this->pp->getUserDataMgr()->getGroup($event->getPlayer());
+            $msg = str_replace("{group}", $tmp->getName(), $msg);
+            $msg = str_replace("{nickname}", $event->getPlayer()->getDisplayName(), $msg);
+        }
+        if(!is_null($this->f)){
+            $fac = $this->f->getFaction($playername);
+            $rank = 'Member';
+            if($this->f->isOfficer($playername)){
+                $rank = 'Officer';
+            }
+            if($this->f->isLeader($playername)){
+                $rank = 'Leader';
+            }
+            $msg = str_replace("{fac_rank}", $rank, $msg);
+            $msg = str_replace("{faction}", $fac, $msg);
+        }
         $this->sendMessage($playername, $msg);
     }
 

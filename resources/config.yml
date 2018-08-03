@@ -6,7 +6,7 @@ debug: false
 
 discord: true
 
-purechat: false
+pureperms: false
 factions: false
 
 webhook_url: ""

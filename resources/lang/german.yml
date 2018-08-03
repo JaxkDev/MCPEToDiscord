@@ -9,8 +9,8 @@ enabled_incomplete: 'Die Plugin-Konfiguration ist unvollständig / fehlerhaft. S
 enabled_debug: 'Plugin ist aktiviert + Debug aktiviert'
 enabled_defualtlang: 'Sprache ist ungültig check config.yml, Sprache auf Englisch gesetzt als defualt'
 
-purechat_good: 'PureChat wurde gefunden und geladen!'
-purechat_bad: 'PureChat Not found, Support für {nickname} und {rank} wird nicht funktionieren.'
+pureperms_good: 'PurePerms wurde gefunden und geladen!'
+pureperms_bad: 'PurePerms Not found, Support für {nickname} und {rank} wird nicht funktionieren.'
 
 factions_good: 'FactionsPro wurde gefunden und geladen!'
 factions_bad: 'FactionsPro nicht gefunden, Support für {faction} und {fac_rank} funktioniert nicht.'
