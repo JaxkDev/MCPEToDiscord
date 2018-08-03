@@ -1,13 +1,18 @@
 language: php
-php:	
-  - "7.2"	
-before_script:	
-  - if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax errors detected"; then exit 1; fi	
-script:	
-  - curl -s -O https://raw.githubusercontent.com/jackthehack21/MCPEToDiscord/master/travis.sh	
-  - chmod u+x travis.sh	
-  - './travis.sh'	
-#before_script:	
-#  - '! find . -type f -name "*.php" -exec php -d error_reporting=32767 -l {} \; 2>&1 >&- | grep "^"'	
-#before_script:	
-#  - if find . -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -n 1 -P 8 php -l | grep -v "No syntax errors detected"; then exit 1; fi
+php:
+- '7.2'
+before_script:
+- if find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax
+  errors detected"; then exit 1; fi
+script:
+- curl -s -O https://raw.githubusercontent.com/jackthehack21/MCPEToDiscord/master/travis.sh
+- chmod u+x travis.sh
+- "./travis.sh"
+deploy:
+  provider: releases
+  api_key:
+    secure: sKgjfvxLOPlLutUx78esLXDieesQOCmXZeX8jgWX3/3NAiUZ7EFPYDoYQHfEaTThTm6XnD+isH1PKDTjywDUwTFnOGy3j30v8IkCRsrkZ040I09a2SGNZ/PKoz1qLIBmLQUwnG9SLCIOcYZybk+OVVnqszJArL1JRHGl7cbBJiOf1ZB8QxiHyfljtNrn/D4IzkqEnYdvqmZslEaM0ExRXKARCHWOtKUIPWk+A745DpI08l++VCCTdaFdfogiQKlmch8zjOz/UVoGKiiXMDhWg9WERAZIc7fgekipYqULqGe54WLEdL/5T9hTEsboA8UsoQvbDi3C8jN5g680Qr+DCVE7MkZ6J2apnr7Pr+9EJt8T44j1hDykCwPuctwOlGZljoB0j0Jw7yCX5G/NMOjqWYdOREDcIA9eDeko0o0dML1S6xB5+niczOG66HDPfa34PsHXHt14V4T0AgvSCVRZxZ+9PXkAlmy58oyuoZcJWa7VxRwW6BR1G7wOmmhSWZ5LJy1kM086cY/EfM/whfUahgFh1ONIay0POSdhFzXt4OJqD+J4M/PHT4n1dt7oq4p3oQ1+9QvcQZYR0TObm311R9uUgs0Tr7xYgo0exBOACzUNqqYHyM+mGxvQsCPxYpX0xpOp6+NsGtrHZf0RKoxx+CNXGeUlEf0QukXGyNmBODM=
+  file: MCPEToDiscord.phar
+  skip_cleanup: true
+  on:
+    tags: true
