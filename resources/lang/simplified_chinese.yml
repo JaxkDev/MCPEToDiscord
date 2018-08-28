@@ -10,10 +10,10 @@ enabled_debug: '插件已启用+已启用调试'
 enabled_defualtlang: '无效语言，检查config.yml，语言被设置为默认语言英语'
 
 pureperms_good: '发现并加载PurePerms！'
-pureperms_bad: '未找到PurePerms，无法支持{nickname}和{rank}。'
+pureperms_bad: '未找到PurePerms，无法支持{nickname}和{rank}'
 
 factions_good: '发现并加载FactionsPro！'
-factions_bad: '未找到FactionsPro，无法支持{faction}和{fac_rank}。'
+factions_bad: '未找到FactionsPro，无法支持{faction}和{fac_rank}'
 
 ingame: '命令 /discord 只能在游戏中使用'
 
