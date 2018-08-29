@@ -1,28 +1,28 @@
 
 ---
-discord                         - 將此設置為true或false以啟用/禁用插件
+discord                         - 设置为true或false以啟用/禁用插件
 
-pureperms                        - 如果啟用{group}和{nickname}，則將此值設置為true或false。
-factions                        - 如果啟用{faction}並且可以使用{fac_rank}，則將此值設置為true或false。
+pureperms                        - 如有可用{group}和{nickname}，將此值設置為true或false
+factions                        - 如有可用{faction}和{fac_rank}，將此值設置為true或false
 
-debug                           - 將其設置為true或false（除非告知，否則建議為false）
+debug                           - 設置為true或false（除非告知，否則建議為false）
 
-webhook_url                     - 將其設置為不一致的webhook網址
-webhook_name                    - 將其設置為您想要webhook的名稱
-webhook_playerChat？            - 將此設置為true | false將所有聊天發送到webhook。
-webhook_playerJoin？            - 將此設置為true | false，以在玩家加入webhook時發送消息。
-webhook_playerLeave？           - 將此設置為true | false以在玩家離開webhook時發送消息。
-webhook_playerDeath？           - 將此設置為true | false，以在玩家死亡時發送消息給webhook。
-webhook_playerChangeGamemode？  - 當玩家將GameMode更改為webhook時，將其設置為true | false以發送味精。
-webhook_playerChatFormat        - 任何具有{time} {player}和{msg}的值，您都不必全部使用它們。
-webhook_playerJoinFormat        - 任何值為{player}
-webhook_playerLeaveFormat       - 任何值為{player}
-webhook_playerDeathFormat       - 任何值為{player}
+webhook_url                     - 設置為Dicord的webhook網址
+webhook_name                    - 設置為您想要webhook的名稱
+webhook_playerChat？            - 設置為true | false以將所有聊天發送到webhook
+webhook_playerJoin？            - 設置為true | false以在玩家加入時發送消息給webhook
+webhook_playerLeave？           - 設置為true | false以在玩家離開時發送消息給webhook
+webhook_playerDeath？           - 設置為true | false以在玩家死亡時發送消息給webhook
+webhook_playerChangeGamemode？  - 設置為true | false以當玩家更改的游戏模式發送給webhook
+webhook_playerChatFormat        - 任何{time}、{player}或{msg}的值，不必全部設置
+webhook_playerJoinFormat        - 任何包含{player}的值
+webhook_playerLeaveFormat       - 任何包含{player}的值
+webhook_playerDeathFormat       - 任何包含{player}的值
 
-other_pluginEnabled？           - 當插件啟動時發送msg以爭執（true | false）
-other_pluginDisabled？          - 當插件停止時發送msg以爭執（true | false）
+other_pluginEnabled？           - 當插件啟動時發送msg到Discord（true | false）
+other_pluginDisabled？          - 當插件禁用時發送msg到Discord（true | false）
 other_pluginEnabledFormat       - 啟用插件時發送的消息
-other_pluginDisabledFormat      - 當插件被禁用時發送的消息
+other_pluginDisabledFormat      - 禁用插件時發送的消息
 ...
 
 ---
