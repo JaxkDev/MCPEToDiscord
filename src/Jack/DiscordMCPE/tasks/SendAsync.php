@@ -1,17 +1,7 @@
 <?php
-# +-------------------------------------------------+
-# |            MCPEToDiscord - VER 1.3.2            |
-# |-------------------------------------------------|
-# |                                                 |
-# | Made by : Jackthehack21 (gangnam253@gmail.com)  |
-# |                                                 |
-# | Version : 1.3.2                                 |
-# |                                                 |
-# | Details : This plugin is aimed to give players  |
-# |           A simple but fun view of what plugins |
-# |           Can do to modify your MCPE experience.|
-# |                                                 |
-# +-------------------------------------------------+
+
+
+// Heavy Thanks to NiekertDev for Async Tasks !
 
 namespace Jack\DiscordMCPE\tasks;
 

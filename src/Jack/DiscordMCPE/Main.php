@@ -211,7 +211,11 @@ class Main extends PluginBase implements Listener{
                 break;
                 
             case 'help':
-                $sender->sendMessage(C::GOLD."-- HELP --\n".C::AQUA."/discord send message\n".C::AQUA."/discord setlang\n".C::AQUA."/discord on/off\n".C::AQUA."/discord help");
+                $sender->sendMessage(C::GOLD."-- HELP --\n".C::AQUA."/discord send message\n".C::AQUA."/discord setlang\n".C::AQUA."/discord on/off\n".C::AQUA."/discord help\n/discord credits");
+                break;
+
+            case 'credits':
+                $sender->sendMessage(C::GOLD.'— Credits —\n'.C::AQUA."NiekertDev (AsyncTasks)\n".C::GREEN."View his plugin on github and poggit !");
                 break;
 
             default:
@@ -364,6 +368,8 @@ class Main extends PluginBase implements Listener{
     /**
      * @param $message
      */
+    // Heavy thanks to NiekertDev !
+
     public function sendMessage(string $player = "nolog", string $msg){
         if(!$this->enabled){
             return;
