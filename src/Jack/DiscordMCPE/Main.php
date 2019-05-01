@@ -36,8 +36,8 @@ class Main extends PluginBase implements Listener{
             @mkdir($this->getDataFolder());
             //Use default, not PM.
         }
-		$this->build = "187A";
-		$this->version = "1.4";
+		$this->build = "190A";
+		$this->version = "1.4.1";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
@@ -370,19 +370,26 @@ class Main extends PluginBase implements Listener{
      */
     // Heavy thanks to NiekertDev !
 
-    public function sendMessage(string $player = "nolog", string $msg){
+    public function sendMessage(string $player = "nolog", string $msg) : bool{
         if(!$this->enabled){
-            return;
+            return false;
         }
         $name = $this->cfg->get("webhook_name");
         $webhook = $this->cfg->get("webhook_url");
+		$cleanMsg = $this->cleanMessage($msg);
         $curlopts = [
-	    "content" => $msg,
+	    	"content" => $cleanMsg,
             "username" => $name
         ];
 
         $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
-	# OLD $this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
-	return true;
+		return true;
     }
+	
+	public function cleanMessage(string $msg) : string{
+		//todo implement banned words list.
+		//for now block tags for those who need this dev build asap.
+		$default = array('@here', '@everyone'); 
+		return str_replace($default,'',$msg); 
+	}
 }
