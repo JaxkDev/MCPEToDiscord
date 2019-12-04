@@ -1,19 +1,5 @@
 <?php
 
-# +-------------------------------------------------+
-# |            MCPEToDiscord - VER 1.4              |
-# |-------------------------------------------------|
-# |                                                 |
-# | Made by : Jackthehack21 (gangnam253@gmail.com)  |
-# |                                                 |
-# | Version : 1.4                                   |
-# |                                                 |
-# | Details : This plugin is aimed to give players  |
-# |           A simple but fun view of what plugins |
-# |           Can do to modify your MCPE experience.|
-# |                                                 |
-# +-------------------------------------------------+
-
 namespace Jack\DiscordMCPE;
 
 use pocketmine\plugin\PluginBase;
@@ -32,11 +18,6 @@ use pocketmine\event\player\{PlayerJoinEvent,PlayerQuitEvent, PlayerDeathEvent, 
 class Main extends PluginBase implements Listener{
 		
 	public function onEnable(){
-        if (!is_dir($this->getDataFolder())) {
-            @mkdir($this->getDataFolder());
-            //Use default, not PM.
-        }
-		$this->build = "190A";
 		$this->version = "1.4.1";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
@@ -130,14 +111,12 @@ class Main extends PluginBase implements Listener{
 				if($this->cfg->get('debug')){
 					$this->getLogger()->info(C::GOLD."=== DETAILS ===");
 					$this->getLogger()->info(C::GREEN."Name     ".C::GOLD.":: ".C::AQUA."MCPEToDiscord");
-					$this->getLogger()->info(C::GREEN."Build    ".C::GOLD.":: ".C::AQUA.$this->build);
 					$this->getLogger()->info(C::GREEN."Version  ".C::GOLD.":: ".C::AQUA.$this->version);
-					$this->getLogger()->info(C::GREEN."Release  ".C::GOLD.":: ".C::AQUA."Public Release - ".$this->build);
 					$this->getLogger()->info(C::GOLD.$this->responses->get('info_note'));
 					$sender->sendMessage(C::GOLD.$this->responses->get('debug_info_response'));
 					break;
 				} else {
-					$sender->sendMessage("Build - ".$this->build);
+					$sender->sendMessage("Versoon - ".$this->version);
 					break;
 				}
 				break;
@@ -215,7 +194,7 @@ class Main extends PluginBase implements Listener{
                 break;
 
             case 'credits':
-                $sender->sendMessage(C::GOLD.'— Credits —\n'.C::AQUA."NiekertDev (AsyncTasks)\n".C::GREEN."View his plugin on github and poggit !");
+                $sender->sendMessage(C::GOLD.'— Credits —\n'.C::AQUA."NiekertDev (AsyncTasks)\n".C::GREEN."View his plugin on github");
                 break;
 
             default:
@@ -387,9 +366,7 @@ class Main extends PluginBase implements Listener{
     }
 	
 	public function cleanMessage(string $msg) : string{
-		//todo implement banned words list.
-		//for now block tags for those who need this dev build asap.
-		$default = array('@here', '@everyone'); 
-		return str_replace($default,'',$msg); 
+		$banned = $this->cfg->get("banned_list", []);
+		return str_replace($banned,'',$msg); 
 	}
 }

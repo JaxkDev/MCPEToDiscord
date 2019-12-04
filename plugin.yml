@@ -1,10 +1,8 @@
 ---
 name: MCPEToDiscord
-author: Jackthehaxk21
-version: 1.4
-api:
-- 3.0.0
-- 3.1.1
+author: JaxkDev
+version: 1.4.1
+api: 3.0.0
 main: Jack\DiscordMCPE\Main
 
 commands:

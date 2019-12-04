@@ -9,6 +9,10 @@ discord: true
 pureperms: false
 factions: false
 
+banned_list:
+  - @here
+  - @everyone
+
 webhook_url: ""
 webhook_name: "MCPE Webhook"
 webhook_playerChat?: true

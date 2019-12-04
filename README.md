@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jackthehack21/MCPEToDiscord.svg?branch=master)](https://travis-ci.org/jackthehack21/MCPEToDiscord) [![HitCount](http://hits.dwyl.io/Jackthehack21/MCPEToDiscord.svg)](http://hits.dwyl.io/Jackthehack21/MCPEToDiscord)
+[![Build Status](https://travis-ci.org/JaxkDev/MCPEToDiscord.svg?branch=master)](https://travis-ci.org/JaxkDev/MCPEToDiscord) [![HitCount](http://hits.dwyl.io/JaxkDev/MCPEToDiscord.svg)](http://hits.dwyl.io/JaxkDev/MCPEToDiscord)
 
 <a href="https://tiny.cc/JaxksDC"><img src="https://discordapp.com/api/guilds/554059221847638040/embed.png" alt="Discord server"/></a>
 
@@ -11,16 +11,10 @@
 
 - NiekertDev (Async Tasks) (https://github.com/NiekertDev)
 
-## Whats new in 1.4
+## Whats new in 1.4.1
 
-- Traditional and simplified chinise support split into two files
-- Added PurePerms Support to add the {group} variable
-- Added FactionsPro Support to add the {faction} and {fac_rank} variables
-
-We smashed 4 Bugs:
-- No more 'send' being sent with message
-- Removed the odd true & false bug
-- Smashed back end glitches
+- No more pings for you mister...
+- Banned words list now in config.
 
 ### Known Bugs:
 - No known Bugs at the current time of writing this.
