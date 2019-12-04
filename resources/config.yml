@@ -10,8 +10,8 @@ pureperms: false
 factions: false
 
 banned_list:
-  - @here
-  - @everyone
+- '@here'
+- '@everyone'
 
 webhook_url: ""
 webhook_name: "MCPE Webhook"

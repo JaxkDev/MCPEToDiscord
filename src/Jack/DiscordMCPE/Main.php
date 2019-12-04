@@ -349,9 +349,9 @@ class Main extends PluginBase implements Listener{
      */
     // Heavy thanks to NiekertDev !
 
-    public function sendMessage(string $player = "nolog", string $msg) : bool{
+    public function sendMessage(string $player = "nolog", string $msg){
         if(!$this->enabled){
-            return false;
+            return;
         }
         $name = $this->cfg->get("webhook_name");
         $webhook = $this->cfg->get("webhook_url");
@@ -361,8 +361,13 @@ class Main extends PluginBase implements Listener{
             "username" => $name
         ];
 
+        if($cleanMsg === ""){
+            $this->getLogger()->warning(C::RED."Warning: Empty message cannot be sent to discord.");
+            return;
+        }
+
         $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
-		return true;
+		return;
     }
 	
 	public function cleanMessage(string $msg) : string{
