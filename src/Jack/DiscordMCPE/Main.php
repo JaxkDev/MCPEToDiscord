@@ -1,19 +1,5 @@
 <?php
 
-# +-------------------------------------------------+
-# |            MCPEToDiscord - VER 1.4              |
-# |-------------------------------------------------|
-# |                                                 |
-# | Made by : Jackthehack21 (gangnam253@gmail.com)  |
-# |                                                 |
-# | Version : 1.4                                   |
-# |                                                 |
-# | Details : This plugin is aimed to give players  |
-# |           A simple but fun view of what plugins |
-# |           Can do to modify your MCPE experience.|
-# |                                                 |
-# +-------------------------------------------------+
-
 namespace Jack\DiscordMCPE;
 
 use pocketmine\plugin\PluginBase;
@@ -32,12 +18,7 @@ use pocketmine\event\player\{PlayerJoinEvent,PlayerQuitEvent, PlayerDeathEvent, 
 class Main extends PluginBase implements Listener{
 		
 	public function onEnable(){
-        if (!is_dir($this->getDataFolder())) {
-            @mkdir($this->getDataFolder());
-            //Use default, not PM.
-        }
-		$this->build = "187A";
-		$this->version = "1.4";
+		$this->version = "1.4.1";
         $this->saveResource("config.yml");
         $this->saveResource("help.txt");
         $this->cfg = new Config($this->getDataFolder()."config.yml", Config::YAML, []);
@@ -130,14 +111,12 @@ class Main extends PluginBase implements Listener{
 				if($this->cfg->get('debug')){
 					$this->getLogger()->info(C::GOLD."=== DETAILS ===");
 					$this->getLogger()->info(C::GREEN."Name     ".C::GOLD.":: ".C::AQUA."MCPEToDiscord");
-					$this->getLogger()->info(C::GREEN."Build    ".C::GOLD.":: ".C::AQUA.$this->build);
 					$this->getLogger()->info(C::GREEN."Version  ".C::GOLD.":: ".C::AQUA.$this->version);
-					$this->getLogger()->info(C::GREEN."Release  ".C::GOLD.":: ".C::AQUA."Public Release - ".$this->build);
 					$this->getLogger()->info(C::GOLD.$this->responses->get('info_note'));
 					$sender->sendMessage(C::GOLD.$this->responses->get('debug_info_response'));
 					break;
 				} else {
-					$sender->sendMessage("Build - ".$this->build);
+					$sender->sendMessage("Versoon - ".$this->version);
 					break;
 				}
 				break;
@@ -215,7 +194,7 @@ class Main extends PluginBase implements Listener{
                 break;
 
             case 'credits':
-                $sender->sendMessage(C::GOLD.'— Credits —\n'.C::AQUA."NiekertDev (AsyncTasks)\n".C::GREEN."View his plugin on github and poggit !");
+                $sender->sendMessage(C::GOLD.'— Credits —\n'.C::AQUA."NiekertDev (AsyncTasks)\n".C::GREEN."View his plugin on github");
                 break;
 
             default:
@@ -376,13 +355,23 @@ class Main extends PluginBase implements Listener{
         }
         $name = $this->cfg->get("webhook_name");
         $webhook = $this->cfg->get("webhook_url");
+		$cleanMsg = $this->cleanMessage($msg);
         $curlopts = [
-	    "content" => $msg,
+	    	"content" => $cleanMsg,
             "username" => $name
         ];
 
+        if($cleanMsg === ""){
+            $this->getLogger()->warning(C::RED."Warning: Empty message cannot be sent to discord.");
+            return;
+        }
+
         $this->getServer()->getAsyncPool()->submitTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
-	# OLD $this->getServer()->getScheduler()->scheduleAsyncTask(new tasks\SendAsync($player, $webhook, serialize($curlopts)));
-	return true;
+		return;
     }
+	
+	public function cleanMessage(string $msg) : string{
+		$banned = $this->cfg->get("banned_list", []);
+		return str_replace($banned,'',$msg); 
+	}
 }
